@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROSELL COMPILATION</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <link rel="icon" type="image/png" href="https://www.clipartmax.com/png/full/130-1303547_pink-folder-icon-pink-folder-icon-png.png">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            overflow:hidden;
+            background:#fff7fa;
+        }
+
+
+        #loginPage{
+            width:100%;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ffd1dc,#ffb6c1,#ffc0cb);
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:9999;
+        }
+
+        .login-box{
+            background:white;
+            padding:50px;
+            border-radius:20px;
+            width:350px;
+            box-shadow:0 15px 35px rgba(0,0,0,0.15);
+            text-align:center;
+        }
+
+        .login-box h2{
+            color:#ff2e78;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            font-size:14px;
+            color:#666;
+            margin-bottom:20px;
+        }
+
+        .input-box{
+            width:100%;
+            margin:10px 0;
+        }
+
+        .input-box input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            outline:none;
+        }
+
+        .input-box input:focus{
+            border-color:#ff4d88;
+            box-shadow:0 0 8px rgba(255,77,136,0.3);
+        }
+
+        .btn{
+            width:100%;
+            padding:12px;
+            margin-top:15px;
+            border:none;
+            border-radius:30px;
+            background:linear-gradient(135deg,#ff4d88,#ff1f6a);
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            transform:scale(1.05);
+        }
+
+        .login-box p{
+            margin-top:15px;
+            font-size:12px;
+            color:#666;
+        }
+
+        .login-box a{
+            color:#ff2e78;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+
+        #mainWebsite{
+            display:none;
+        }
+
+        .page-section{
+            width:100%;
+            height:100vh;
+            display:none;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .top-nav{
+            width:100%;
+            height:85px;
+            background:rgba(255,255,255,0.95);
+            display:flex;
+            align-items:center;
+            gap:16px;
+            padding-left:45px;
+            border-bottom:2px solid #ffd6e6;
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:100;
+        }
+
+        .top-nav a{
+            text-decoration:none;
+            color:#ff5ca8;
+            border:2px solid #ffbfd8;
+            padding:12px 22px;
+            border-radius:40px;
+            background:#fff7fa;
+            font-size:14px;
+            font-weight:600;
+        }
+
+        .top-nav a:hover{
+            background:#ff5ca8;
+            color:white;
+        }
+
+
+        #page1{
+            background:linear-gradient(to bottom,#fff9fc,#fdeef5);
+        }
+
+        .container{
+            width:100%;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            padding:20px;
+        }
+
+        .mini{
+            color:#ff5ca8;
+            font-size:14px;
+            font-weight:700;
+            letter-spacing:7px;
+            margin-bottom:18px;
+        }
+
+        .main-title{
+            font-size:68px;
+            line-height:1;
+            color:#222;
+            text-align:center;
+            margin-bottom:22px;
+        }
+
+        .main-title span{
+            color:#ff5ca8;
+        }
+
+        .desc{
+            max-width:720px;
+            text-align:center;
+            color:#777;
+            font-size:17px;
+            line-height:2;
+            margin-bottom:55px;
+        }
+
+        .buttons{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:16px;
+            flex-wrap:wrap;
+        }
+
+        button{
+            border:none;
+            font-size:15px;
+            cursor:pointer;
+        }
+
+        .uber{
+            width:170px;
+            height:50px;
+            background:black;
+            color:white;
+        }
+
+        .amazon{
+            width:210px;
+            height:50px;
+            background:rgb(255,216,20);
+            border-radius:40px;
+            color:black;
+        }
+
+        .github{
+            width:150px;
+            height:50px;
+            background:rgb(46,164,79);
+            color:white;
+            border-radius:8px;
+            font-weight:600;
+        }
+
+        .bootstrap{
+            width:170px;
+            height:50px;
+            background:rgb(121,82,179);
+            color:white;
+            border-radius:8px;
+            font-weight:600;
+        }
+
+        .download{
+            width:160px;
+            height:50px;
+            background:white;
+            color:rgb(108,117,125);
+            border:1px solid rgb(108,117,125);
+            border-radius:8px;
+            font-weight:600;
+        }
+
+        .linkedin{
+            width:290px;
+            height:52px;
+            background:rgb(10,102,194);
+            color:white;
+            border-radius:40px;
+            font-weight:600;
+        }
+
+        .save{
+            width:120px;
+            height:52px;
+            background:white;
+            color:rgb(10,102,194);
+            border:2px solid rgb(10,102,194);
+            border-radius:40px;
+            font-weight:600;
+        }
+
+
+        #page2{
+            background:linear-gradient(to bottom,#fff9fc,#fdeef5);
+        }
+
+        #page2 .uber:hover{
+            opacity:0.8;
+        }
+
+        #page2 .amazon:hover{
+            background:rgb(245,205,3);
+        }
+
+        #page2 .github:hover{
+            box-shadow:0 5px 12px rgba(0,0,0,0.2);
+        }
+
+        #page2 .bootstrap:hover{
+            opacity:0.9;
+        }
+
+        #page2 .download:hover{
+            background:rgb(108,117,125);
+            color:white;
+        }
+
+        #page2 .linkedin:hover{
+            background:rgb(2,70,138);
+        }
+
+        #page2 .save:hover{
+            background:rgb(220,240,255);
+            border-width:3px;
+        }
+
+
+        #page3{
+            background:black;
+        }
+
+        .hero{
+            width:100%;
+            height:100vh;
+
+            background:
+            linear-gradient(to right,rgba(0,0,0,0.65),rgba(0,0,0,0.12)),
+            url('https://bloximages.newyork1.vip.townnews.com/valpotorch.com/content/tncms/assets/v3/editorial/1/27/1272cdb8-7462-11ef-9955-030cbfd4ca68/66e8874bf3f40.image.jpg');
+
+            background-size:cover;
+            background-position:right center;
+
+            display:flex;
+            align-items:center;
+            padding-left:110px;
+        }
+
+        .content{
+            color:white;
+            max-width:520px;
+        }
+
+        .hero-title{
+            font-size:68px;
+            line-height:0.95;
+            margin-bottom:22px;
+            font-weight:800;
+            color:white;
+        }
+
+        .song{
+            font-size:26px;
+            color:#f3f3f3;
+            margin-bottom:5px;
+        }
+
+        .artist{
+            font-size:26px;
+            color:#f3f3f3;
+            margin-bottom:20px;
+        }
+
+        .music-bar{
+            width:460px;
+            overflow:hidden;
+            margin-bottom:18px;
+        }
+
+        .running-text{
+            color:white;
+            font-size:18px;
+            white-space:nowrap;
+            animation:moveText 10s linear infinite;
+        }
+
+        @keyframes moveText{
+
+            from{
+                transform:translateX(100%);
+            }
+
+            to{
+                transform:translateX(-100%);
+            }
+
+        }
+
+        audio{
+            width:460px;
+            height:50px;
+            margin-bottom:30px;
+        }
+
+        .play-song{
+            display:inline-block;
+            text-decoration:none;
+            background:#f58bb1;
+            color:white;
+            padding:15px 38px;
+            border-radius:50px;
+            font-size:17px;
+            font-weight:600;
+        }
+
+
+        #page4{
+            background:linear-gradient(to bottom,#fff9fc,#ffeef5);
+        }
+
+        .hero2{
+            width:100%;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+        }
+
+        .hero-box{
+            width:100%;
+            max-width:980px;
+            height:540px;
+            border-radius:35px;
+            background:linear-gradient(135deg,#ffffff,#fff4f8);
+            border:2px solid #ffd6e6;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:60px;
+            box-shadow:0 10px 25px rgba(255,92,168,0.08);
+            position:relative;
+            overflow:hidden;
+        }
+
+        .buttons2{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:18px;
+        }
+
+        .play-btn{
+            text-decoration:none;
+            background:#ff5ca8;
+            color:white;
+            padding:16px 34px;
+            border-radius:45px;
+            font-size:15px;
+            font-weight:600;
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+
+        .album-btn{
+            text-decoration:none;
+            border:2px solid #ffbfd8;
+            color:#ff5ca8;
+            background:white;
+            padding:16px 34px;
+            border-radius:45px;
+            font-size:15px;
+            font-weight:600;
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+
+
+        .pagination{
+            position:fixed;
+            bottom:25px;
+            left:50%;
+            transform:translateX(-50%);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:12px;
+            z-index:999;
+        }
+
+        .nav-btn{
+            background:rgba(255,255,255,0.75);
+            color:#ff5ca8;
+            border:2px solid #ffd6e6;
+            padding:12px 28px;
+            border-radius:16px;
+            font-size:15px;
+            font-weight:600;
+            cursor:pointer;
+        }
+
+        .page-btn{
+            width:48px;
+            height:48px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:rgba(255,255,255,0.75);
+            color:#ff5ca8;
+            border:2px solid #ffd6e6;
+            border-radius:14px;
+            font-size:15px;
+            font-weight:600;
+            cursor:pointer;
+        }
+
+        .page-btn.active{
+            background:#ff5ca8;
+            color:white;
+            border:none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div id="loginPage">
+
+    <div class="login-box">
+
+        <h2>Welcome</h2>
+
+        <div class="subtitle">
+            Sign in to your account
+        </div>
+
+        <div class="input-box">
+            <input type="text" placeholder="Username">
+        </div>
+
+        <div class="input-box">
+            <input type="password" placeholder="Password">
+        </div>
+
+        <button class="btn" onclick="loginWebsite()">
+            Login
+        </button>
+
+        <p>
+            Don't have an account?
+            <a href="#">Sign up</a>
+        </p>
+
+    </div>
+
+</div>
+
+
+<div id="mainWebsite">
+
+
+    <section class="page-section" id="page1">
+
+        <div class="top-nav">
+            <a href="#" onclick="showPage(3)">Act 2 - CSS Basic</a>
+            <a href="#" onclick="showPage(4)">Act 3 - Hover & Shadow</a>
+            <a href="#" onclick="showPage(2)">Act 4 - Image & Audio</a>
+            <a href="#" onclick="showPage(1)">Act 5 - Hero</a>
+        </div>
+
+        <div class="container">
+
+            <div class="mini">
+                ACTIVITY 2 • CSS BASIC
+            </div>
+
+            <h1 class="main-title">
+                CSS <span>Basic</span><br>
+                Buttons
+            </h1>
+
+            <div class="desc">
+                Beginner-friendly button designs inspired by modern websites using pure HTML and CSS with soft pink light mode aesthetics.
+            </div>
+
+            <div class="buttons">
+
+                <button class="uber">Request now</button>
+
+                <button class="amazon">Add to cart</button>
+
+                <button class="github">Sign up</button>
+
+                <button class="bootstrap">Get started</button>
+
+                <button class="download">Download</button>
+
+                <button class="linkedin">Apply on company website</button>
+
+                <button class="save">Save</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="page-section" id="page2">
+
+        <div class="top-nav">
+            <a href="#" onclick="showPage(3)">Act 2 - CSS Basic</a>
+            <a href="#" onclick="showPage(4)">Act 3 - Hover & Shadow</a>
+            <a href="#" onclick="showPage(2)">Act 4 - Image & Audio</a>
+            <a href="#" onclick="showPage(1)">Act 5 - Hero</a>
+        </div>
+
+        <div class="container">
+
+            <div class="mini">
+                ACTIVITY 3 • HOVER & SHADOW
+            </div>
+
+            <h1 class="main-title">
+                Hover,
+                <span>Shadow</span><br>
+                & Transition
+            </h1>
+
+            <div class="desc">
+                Interactive CSS button effects using hover, box-shadow, opacity, transitions, and smooth animations for modern web design.
+            </div>
+
+            <div class="buttons">
+
+                <button class="uber">Request now</button>
+
+                <button class="amazon">Add to cart</button>
+
+                <button class="github">Sign up</button>
+
+                <button class="bootstrap">Get started</button>
+
+                <button class="download">Download</button>
+
+                <button class="linkedin">Apply on company website</button>
+
+                <button class="save">Save</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="page-section" id="page3">
+
+        <div class="top-nav">
+            <a href="#" onclick="showPage(3)">Act 2 - CSS Basic</a>
+            <a href="#" onclick="showPage(4)">Act 3 - Hover & Shadow</a>
+            <a href="#" onclick="showPage(2)">Act 4 - Image & Audio</a>
+            <a href="#" onclick="showPage(1)">Act 5 - Hero</a>
+        </div>
+
+        <div class="hero">
+
+            <div class="content">
+
+                <div class="mini">
+                    ACTIVITY 4 • IMAGE & AUDIO
+                </div>
+
+                <h1 class="hero-title">
+                    Sabrina<br>
+                    Carpenter
+                </h1>
+
+                <div class="song">
+                    Bed Chem (Lyrics)
+                </div>
+
+                <div class="artist">
+                    Vibe Music
+                </div>
+
+                <div class="music-bar">
+
+                    <div class="running-text">
+                        🎵 Sabrina Carpenter - Bed Chem (Lyrics) • Vibe Music • Now Playing 🎵
+                    </div>
+
+                </div>
+
+                <audio controls autoplay loop>
+
+                    <source src="bedchem-music.mp3" type="audio/mpeg">
+
+                </audio>
+
+                <br>
+
+                <a href="https://youtu.be/KYuREfOVDsg?si=IyZIi1VmhiTn38Nd" target="_blank" class="play-song">
+                    Play Song
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="page-section" id="page4">
+
+        <div class="top-nav">
+            <a href="#" onclick="showPage(3)">Act 2 - CSS Basic</a>
+            <a href="#" onclick="showPage(4)">Act 3 - Hover & Shadow</a>
+            <a href="#" onclick="showPage(2)">Act 4 - Image & Audio</a>
+            <a href="#" onclick="showPage(1)">Act 5 - Hero</a>
+        </div>
+
+        <div class="hero2">
+
+            <div class="hero-box">
+
+                <div class="content">
+
+                    <div class="mini">
+                        ACTIVITY 5 • HERO PAGE
+                    </div>
+
+                    <h1 class="main-title">
+                        Feel The<br>
+                        <span>Pop Star</span><br>
+                        Energy
+                    </h1>
+
+                    <div class="desc">
+                        Explore a modern hero page inspired by music artist websites using pure HTML and CSS with soft pink light mode aesthetics and clean desktop layouts.
+                    </div>
+
+                    <div class="buttons2">
+
+                        <a href="#" class="play-btn">
+                            <i class="fa-solid fa-music"></i>
+                            Play Music
+                        </a>
+
+                        <a href="#" class="album-btn">
+                            <i class="fa-solid fa-star"></i>
+                            Explore More
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="pagination">
+
+        <button class="nav-btn" onclick="prevPage()">
+            Prev
+        </button>
+
+        <button class="page-btn active" id="btn1" onclick="showPage(1)">
+            1
+        </button>
+
+        <button class="page-btn" id="btn2" onclick="showPage(2)">
+            2
+        </button>
+
+        <button class="page-btn" id="btn3" onclick="showPage(3)">
+            3
+        </button>
+
+        <button class="page-btn" id="btn4" onclick="showPage(4)">
+            4
+        </button>
+
+        <button class="nav-btn" onclick="nextPage()">
+            Next
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    let currentPage = 1;
+
+    function loginWebsite(){
+
+        document.getElementById("loginPage").style.display = "none";
+
+        document.getElementById("mainWebsite").style.display = "block";
+
+        showPage(1);
+
+    }
+
+    function showPage(page){
+
+        currentPage = page;
+
+        document.querySelectorAll(".page-section").forEach(function(section){
+
+            section.style.display = "none";
+
+        });
+
+        let pageIds = {
+
+            1:"page4",
+            2:"page3",
+            3:"page1",
+            4:"page2"
+
+        };
+
+        document.getElementById(pageIds[page]).style.display = "block";
+
+        document.querySelectorAll(".page-btn").forEach(function(btn){
+
+            btn.classList.remove("active");
+
+        });
+
+        document.getElementById("btn"+page).classList.add("active");
+
+    }
+
+    function nextPage(){
+
+        if(currentPage < 4){
+
+            currentPage++;
+
+            showPage(currentPage);
+
+        }
+
+    }
+
+    function prevPage(){
+
+        if(currentPage > 1){
+
+            currentPage--;
+
+            showPage(currentPage);
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
